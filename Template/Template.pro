@@ -25,7 +25,8 @@ HEADERS += \
     src/phenomene.h \
     src/shape.h \
     src/graphicsengine.h \
-    src/camera.h
+    src/camera.h \
+    src/environment.h
 
 SOURCES += \
     ../Common/GlFramework.cpp \
@@ -38,4 +39,5 @@ SOURCES += \
     src/shape.cpp \
     src/Simulator.cpp \
     src/graphicsengine.cpp \
-    src/camera.cpp
+    src/camera.cpp \
+    src/environment.cpp
