@@ -26,7 +26,8 @@ HEADERS += \
     src/shape.h \
     src/graphicsengine.h \
     src/camera.h \
-    src/environment.h
+    src/environment.h \
+    src/quaternion.h
 
 SOURCES += \
     ../Common/GlFramework.cpp \
@@ -40,4 +41,5 @@ SOURCES += \
     src/Simulator.cpp \
     src/graphicsengine.cpp \
     src/camera.cpp \
-    src/environment.cpp
+    src/environment.cpp \
+    src/quaternion.cpp
