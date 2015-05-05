@@ -10,7 +10,7 @@
 //*****************************************************************************
 
 
-#include "TP01.h"
+#include "GraphicsEngine.h"
 
 #include <QApplication>
 
@@ -18,7 +18,7 @@
 int main(int argc, char *argv[])
 {
 	QApplication app(argc, argv);
-	TP01 win;
+    GraphicsEngine win;
 	win.show();
 	return app.exec();
 }

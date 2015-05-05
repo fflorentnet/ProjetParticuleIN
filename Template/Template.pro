@@ -21,7 +21,11 @@ HEADERS += \
     ../Common/LF_String.h \
     ../Common/Object3D.h \
     ../Common/Shapes/Basis.h \
-    src/TP01.h \
+    src/particule.h \
+    src/phenomene.h \
+    src/shape.h \
+    src/graphicsengine.h \
+    src/camera.h
 
 SOURCES += \
     ../Common/GlFramework.cpp \
@@ -29,5 +33,9 @@ SOURCES += \
     ../Common/LF_String.cpp \
     ../Common/Object3D.cpp \
     ../Common/Shapes/Basis.cpp \
-    src/TP01.cpp \
-    src/main.cpp \
+    src/particule.cpp \
+    src/phenomene.cpp \
+    src/shape.cpp \
+    src/Simulator.cpp \
+    src/graphicsengine.cpp \
+    src/camera.cpp
