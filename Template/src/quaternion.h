@@ -28,6 +28,11 @@ public:
     Quaternion slerp(const Quaternion& q1,const Quaternion& q2,float t);
     void normalize();
     void setRotationMatrix (float* mat);
+
+    float getAA() { return x; }
+    float getAY() { return y; }
+    float getAZ() { return z; }
+
 };
 
 #endif // QUATERNION_H
