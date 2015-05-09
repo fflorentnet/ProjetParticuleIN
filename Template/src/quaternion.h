@@ -29,7 +29,7 @@ public:
     void normalize();
     void setRotationMatrix (float* mat);
 
-    float getAA() { return x; }
+    float getAX() { return x; }
     float getAY() { return y; }
     float getAZ() { return z; }
 

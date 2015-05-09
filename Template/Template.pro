@@ -27,7 +27,10 @@ HEADERS += \
     src/graphicsengine.h \
     src/camera.h \
     src/environment.h \
-    src/quaternion.h
+    src/quaternion.h \
+    color.h \
+    src/fountainphenomene.h \
+    src/fountainparticule.h
 
 SOURCES += \
     ../Common/GlFramework.cpp \
@@ -42,4 +45,7 @@ SOURCES += \
     src/graphicsengine.cpp \
     src/camera.cpp \
     src/environment.cpp \
-    src/quaternion.cpp
+    src/quaternion.cpp \
+    color.cpp \
+    src/fountainphenomene.cpp \
+    src/fountainparticule.cpp
