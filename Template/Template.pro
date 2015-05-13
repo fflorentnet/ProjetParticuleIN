@@ -30,7 +30,15 @@ HEADERS += \
     src/quaternion.h \
     color.h \
     src/fountainphenomene.h \
-    src/fountainparticule.h
+    src/fountainparticule.h \
+    ../Common/AbstractFramework.h \
+    ../Common/MemDefns.h \
+    ../Common/RandomNumberGenerator.h \
+    ../Common/Types.h \
+    ../Common/Vectors.h \
+    ../glew-mingw/include/GL/glew.h \
+    ../glew-mingw/include/GL/glxew.h \
+    ../glew-mingw/include/GL/wglew.h
 
 SOURCES += \
     ../Common/GlFramework.cpp \
@@ -48,4 +56,5 @@ SOURCES += \
     src/quaternion.cpp \
     color.cpp \
     src/fountainphenomene.cpp \
-    src/fountainparticule.cpp
+    src/fountainparticule.cpp \
+    ../Common/RandomNumberGenerator.cpp
