@@ -4,23 +4,23 @@
 #include "Vectors.h"
 #include "GlFramework.h"
 #include "particule.h"
-
+#include "Shapes/Basis.h"
 #define MAX_PARTICULES 3000
 
 class Phenomene
 {
-private:
+protected:
     char* shaderColor;
     char* shaderFrag;
     Particule* p_Container;
-    Shape *s;
+    Object3D *s;
     int lastParticule;
     Vec3 origin;
     int findUnusedParticule();
 public:
-    virtual Phenomene();
-    virtual Phenomene(Vec3 Pos);
-    virtual ~Phenomene();
+    Phenomene();
+    Phenomene(Vec3 Pos);
+    virtual ~Phenomene() = 0;
     virtual void update() = 0;
 
 };

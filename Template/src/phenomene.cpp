@@ -1,6 +1,23 @@
 #include "phenomene.h"
 
+Phenomene::Phenomene()
+{
+    origin = Vec3(0,0,0);
+}
 
+Phenomene::Phenomene(Vec3 pos)
+{
+    origin = pos;
+}
+
+Phenomene::~Phenomene()
+{
+
+}
+
+void Phenomene::update() {
+
+}
 
 int Phenomene::findUnusedParticule()
 {
@@ -11,7 +28,7 @@ int Phenomene::findUnusedParticule()
         }
     }
     for(int i=0; i<lastParticule; i++){
-        if (p_Container[i].life < 0){
+        if (p_Container[i].getLife() < 0){
             lastParticule = i;
             return i;
         }
