@@ -23,14 +23,21 @@ HEADERS += \
     ../Common/Shapes/Basis.h \
     src/particule.h \
     src/phenomene.h \
-    src/shape.h \
     src/graphicsengine.h \
     src/camera.h \
     src/environment.h \
     src/quaternion.h \
     color.h \
     src/fountainphenomene.h \
-    src/fountainparticule.h
+    src/fountainparticule.h \
+    ../Common/AbstractFramework.h \
+    ../Common/MemDefns.h \
+    ../Common/RandomNumberGenerator.h \
+    ../Common/Types.h \
+    ../Common/Vectors.h \
+    ../glew-mingw/include/GL/glew.h \
+    ../glew-mingw/include/GL/glxew.h \
+    ../glew-mingw/include/GL/wglew.h
 
 SOURCES += \
     ../Common/GlFramework.cpp \
@@ -40,7 +47,6 @@ SOURCES += \
     ../Common/Shapes/Basis.cpp \
     src/particule.cpp \
     src/phenomene.cpp \
-    src/shape.cpp \
     src/Simulator.cpp \
     src/graphicsengine.cpp \
     src/camera.cpp \
@@ -48,4 +54,8 @@ SOURCES += \
     src/quaternion.cpp \
     color.cpp \
     src/fountainphenomene.cpp \
-    src/fountainparticule.cpp
+    src/fountainparticule.cpp \
+    ../Common/RandomNumberGenerator.cpp
+
+DISTFILES += \
+    ../glew-mingw/lib/glew32.dll

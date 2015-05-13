@@ -14,7 +14,6 @@ public:
     float getfG() { return g/255; }
     float getfB() { return b/255; }
 
-
     ~Color();
 };
 

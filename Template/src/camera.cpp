@@ -5,7 +5,7 @@
 
 Camera::Camera()
 {
-    position = Vec3(0,0,0);
+    m_Position = Vec3(0,0,0);
 }
 
 Camera::~Camera()
@@ -15,9 +15,9 @@ Camera::~Camera()
 
 void Camera::translate(float x, float y, float z)
 {
-    position.x += x;
-    position.y += y;
-    position.z += z;
+    m_Position.x += x;
+    m_Position.y += y;
+    m_Position.z += z;
 }
 
 void Camera::translateX(float shift)
