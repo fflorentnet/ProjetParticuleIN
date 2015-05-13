@@ -23,7 +23,6 @@ HEADERS += \
     ../Common/Shapes/Basis.h \
     src/particule.h \
     src/phenomene.h \
-    src/shape.h \
     src/graphicsengine.h \
     src/camera.h \
     src/environment.h \
@@ -48,7 +47,6 @@ SOURCES += \
     ../Common/Shapes/Basis.cpp \
     src/particule.cpp \
     src/phenomene.cpp \
-    src/shape.cpp \
     src/Simulator.cpp \
     src/graphicsengine.cpp \
     src/camera.cpp \
