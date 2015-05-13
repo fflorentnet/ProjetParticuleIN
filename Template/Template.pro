@@ -56,3 +56,6 @@ SOURCES += \
     src/fountainphenomene.cpp \
     src/fountainparticule.cpp \
     ../Common/RandomNumberGenerator.cpp
+
+DISTFILES += \
+    ../glew-mingw/lib/glew32.dll
