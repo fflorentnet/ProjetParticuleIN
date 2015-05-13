@@ -58,4 +58,6 @@ SOURCES += \
     ../Common/RandomNumberGenerator.cpp
 
 DISTFILES += \
-    ../glew-mingw/lib/glew32.dll
+    ../glew-mingw/lib/glew32.dll \
+    release/Shaders/color.fs \
+    release/Shaders/color.vs
