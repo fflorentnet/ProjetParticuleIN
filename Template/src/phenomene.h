@@ -25,4 +25,4 @@ public:
 
 };
 
-#endif // PHENOMENE_H_
+#endif // PHENOMENE_H
