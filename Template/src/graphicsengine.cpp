@@ -3,6 +3,7 @@
 
 #include "Shapes/Basis.h"
 #include "Shapes/TestObject.h"
+#include "Shapes/particules.h"
 #include "environment.h"
 
 #include <iostream>
@@ -19,6 +20,8 @@ const GLfloat g_AngleSpeed = 10.0f;
 Basis* g_Basis;
 TestObject* test;
 
+Particules* particules;
+
 Environment* environnement;
 
 
@@ -30,6 +33,7 @@ GraphicsEngine::GraphicsEngine()
 
     g_Basis = new Basis( 10.0 );
     test = new TestObject();
+    particules = new Particules();
     environnement = new Environment();
 }
 
@@ -66,13 +70,25 @@ GraphicsEngine::initializeObjects()
     cout << "Shader test: ";
     if (useShader( "test" ))
     {
-        cout << "test Loaded!" << endl;
+        cout << "Loaded!" << endl;
     }
     else
     {
-        cout << "test NOT Loaded!" << endl;
+        cout << "NOT Loaded!" << endl;
     }
 
+
+    createShader( "Shaders/particules" );
+
+    cout << "Shader particules: ";
+    if (useShader( "particules" ))
+    {
+        cout << "Loaded!" << endl;
+    }
+    else
+    {
+        cout << "NOT Loaded!" << endl;
+    }
 
 
 
@@ -95,6 +111,9 @@ GraphicsEngine::render()
 
         g_Basis->draw();
         test->draw();
+
+        particules->update();
+        particules->draw();
     popMatrix();
 
 
