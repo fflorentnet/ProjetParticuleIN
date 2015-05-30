@@ -9,19 +9,21 @@
 
 class Phenomene
 {
-protected:
+public:
     char* shaderColor;
     char* shaderFrag;
     Particule* p_Container;
     Object3D *s;
     int lastParticule;
     Vec3 origin;
+    float startTime;
+    float life;
     int findUnusedParticule();
-public:
+
     Phenomene();
     Phenomene(Vec3 Pos);
     virtual ~Phenomene() = 0;
-    virtual void update() = 0;
+    virtual void update(float delta) = 0;
 
 };
 

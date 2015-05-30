@@ -12,7 +12,7 @@ public:
     FountainPhenomene();
     FountainPhenomene(Vec3 Pos);
     ~FountainPhenomene();
-    void update();
+    void update(float delta);
 };
 
 #endif // FOUNTAINPHENOMENE_H

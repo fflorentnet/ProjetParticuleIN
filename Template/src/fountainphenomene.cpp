@@ -20,7 +20,7 @@ FountainPhenomene::FountainPhenomene(Vec3 Pos)
     origin = Pos;
 }
 
-void FountainPhenomene::update()
+void FountainPhenomene::update(float delta)
 {
 
 }

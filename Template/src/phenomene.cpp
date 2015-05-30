@@ -15,7 +15,7 @@ Phenomene::~Phenomene()
 
 }
 
-void Phenomene::update() {
+void Phenomene::update(float delta) {
 
 }
 

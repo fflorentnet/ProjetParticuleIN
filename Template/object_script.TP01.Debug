@@ -15,4 +15,5 @@ INPUT(
 ./obj\fountainphenomene.o
 ./obj\fountainparticule.o
 ./obj\RandomNumberGenerator.o
+./obj\testobject.o
 );

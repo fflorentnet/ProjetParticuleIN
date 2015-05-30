@@ -208,7 +208,7 @@ GlFramework::createShader( const char* shader_prefix )
 
 		cout << "Error: " << QString(log).toStdString().c_str() << endl;
 
-		return -1;
+        return -1;
 //        QMessageBox::critical(this, trUtf8("Erreur"), trUtf8("Echec de la compilation du fragment shader:\n\n%1").arg(QString(log)));
 //        exit(-1);
     }
@@ -224,7 +224,7 @@ GlFramework::createShader( const char* shader_prefix )
 
 		cout << "Error: " << QString(log).toStdString().c_str() << endl;
 
-		return -1;
+        return -1;
 
 //        QMessageBox::critical(this, trUtf8("Erreur"), trUtf8("Echec du linkage du programme:\n\n%1").arg(QString(log)));
 //        exit(-1);

@@ -37,7 +37,8 @@ HEADERS += \
     ../Common/Vectors.h \
     ../glew-mingw/include/GL/glew.h \
     ../glew-mingw/include/GL/glxew.h \
-    ../glew-mingw/include/GL/wglew.h
+    ../glew-mingw/include/GL/wglew.h \
+    ../Common/Shapes/testobject.h
 
 SOURCES += \
     ../Common/GlFramework.cpp \
@@ -55,7 +56,8 @@ SOURCES += \
     color.cpp \
     src/fountainphenomene.cpp \
     src/fountainparticule.cpp \
-    ../Common/RandomNumberGenerator.cpp
+    ../Common/RandomNumberGenerator.cpp \
+    ../Common/Shapes/testobject.cpp
 
 DISTFILES += \
     ../glew-mingw/lib/glew32.dll \
