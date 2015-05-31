@@ -17,4 +17,5 @@ INPUT(
 ./obj\RandomNumberGenerator.o
 ./obj\testobject.o
 ./obj\particules.o
+./obj\explosion.o
 );

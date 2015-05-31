@@ -39,7 +39,8 @@ HEADERS += \
     ../glew-mingw/include/GL/glxew.h \
     ../glew-mingw/include/GL/wglew.h \
     ../Common/Shapes/testobject.h \
-    ../Common/Shapes/particules.h
+    ../Common/Shapes/particules.h \
+    ../Common/Shapes/explosion.h
 
 SOURCES += \
     ../Common/GlFramework.cpp \
@@ -59,11 +60,14 @@ SOURCES += \
     src/fountainparticule.cpp \
     ../Common/RandomNumberGenerator.cpp \
     ../Common/Shapes/testobject.cpp \
-    ../Common/Shapes/particules.cpp
+    ../Common/Shapes/particules.cpp \
+    ../Common/Shapes/explosion.cpp
 
 DISTFILES += \
     ../glew-mingw/lib/glew32.dll \
     release/Shaders/color.fs \
     release/Shaders/color.vs \
     release/Shaders/particules.vs \
-    release/Shaders/particules.fs
+    release/Shaders/particules.fs \
+    release/Shaders/explosion.vs \
+    release/Shaders/explosion.fs

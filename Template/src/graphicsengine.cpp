@@ -4,6 +4,7 @@
 #include "Shapes/Basis.h"
 #include "Shapes/TestObject.h"
 #include "Shapes/particules.h"
+#include "Shapes/explosion.h"
 #include "environment.h"
 
 #include <iostream>
@@ -22,6 +23,8 @@ TestObject* test;
 
 Particules* particules;
 
+Explosion* explosion;
+
 Environment* environnement;
 
 
@@ -34,6 +37,7 @@ GraphicsEngine::GraphicsEngine()
     g_Basis = new Basis( 10.0 );
     test = new TestObject();
     particules = new Particules();
+    explosion = new Explosion();
     environnement = new Environment();
 }
 
@@ -90,6 +94,17 @@ GraphicsEngine::initializeObjects()
         cout << "NOT Loaded!" << endl;
     }
 
+    createShader( "Shaders/explosion" );
+
+    cout << "Shader explosion: ";
+    if (useShader( "explosion" ))
+    {
+        cout << "Loaded!" << endl;
+    }
+    else
+    {
+        cout << "NOT Loaded!" << endl;
+    }
 
 
     return true;
@@ -114,6 +129,9 @@ GraphicsEngine::render()
 
         particules->update();
         particules->draw();
+
+        explosion->update();
+        explosion->draw();
     popMatrix();
 
 
