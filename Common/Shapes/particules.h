@@ -12,6 +12,7 @@ public:
     Particules();
     void draw();
     void update();
+    float RandomFloat(float, float);
 
 protected:
     void drawShape();

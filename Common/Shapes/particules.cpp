@@ -1,6 +1,5 @@
 #include "particules.h"
-
-
+#include <cstdlib>
 
 Particules::Particules()
 {
@@ -10,33 +9,33 @@ Particules::Particules()
     for( GLuint i = 0; i < NB_PARTICULES*POINTS; i += POINTS )
     {
 
-        m_tabVertices[i] = currentVal;
+        m_tabVertices[i] = RandomFloat(0,currentVal);
         m_tabVertices[i+1] = 0.0f;
         m_tabVertices[i+2] = 0.0f;
 
         m_tabVertices[i+3] = 0.0f;
-        m_tabVertices[i+4] = currentVal;
+        m_tabVertices[i+4] = RandomFloat(0,currentVal);
         m_tabVertices[i+5] = 0.0f;
 
         m_tabVertices[i+6] = 0.0f;
         m_tabVertices[i+7] = 0.0f;
-        m_tabVertices[i+8] = currentVal;
+        m_tabVertices[i+8] = RandomFloat(0,currentVal);
 
-        m_tabVertices[i+9] = currentVal;
-        m_tabVertices[i+10] = currentVal;
+        m_tabVertices[i+9] = RandomFloat(0,currentVal);
+        m_tabVertices[i+10] = RandomFloat(0,currentVal);
         m_tabVertices[i+11] = 0.0f;
 
         m_tabVertices[i+12] = 0.0f;
-        m_tabVertices[i+13] = currentVal;
-        m_tabVertices[i+14] = currentVal;
+        m_tabVertices[i+13] = RandomFloat(0,currentVal);
+        m_tabVertices[i+14] = RandomFloat(0,currentVal);
 
-        m_tabVertices[i+15] = currentVal;
+        m_tabVertices[i+15] = RandomFloat(0,currentVal);
         m_tabVertices[i+16] = 0.0f;
-        m_tabVertices[i+17] = currentVal;
+        m_tabVertices[i+17] = RandomFloat(0,currentVal);
 
-        m_tabVertices[i+18] = currentVal;
-        m_tabVertices[i+19] = currentVal;
-        m_tabVertices[i+20] = currentVal;
+        m_tabVertices[i+18] = RandomFloat(0,currentVal);
+        m_tabVertices[i+19] = RandomFloat(0,currentVal);
+        m_tabVertices[i+20] = RandomFloat(0,currentVal);
 
 
         m_tabColors[i] = 0.0f;
@@ -102,6 +101,14 @@ Particules::draw()
 
         drawShape();
     }
+}
+
+float
+Particules::RandomFloat(float a, float b) {
+    float random = ((float) rand()) / (float) RAND_MAX;
+    float diff = b - a;
+    float r = random * diff;
+    return a + r;
 }
 
 void
