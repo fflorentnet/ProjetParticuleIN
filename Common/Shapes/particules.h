@@ -20,6 +20,7 @@ protected:
     GLfloat m_tabColors[NB_PARTICULES*POINTS];
     GLfloat m_tabLives[NB_PARTICULES*7];
 
+
 private:
     float life;
 

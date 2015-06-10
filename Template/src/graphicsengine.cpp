@@ -12,8 +12,8 @@
 using namespace std;
 
 
-GLfloat angle1 = 30.0f;
-GLfloat angle2 = 20.0f;
+GLfloat angle1 = 0.0f;
+GLfloat angle2 = 0.0f;
 
 const GLfloat g_AngleSpeed = 10.0f;
 
@@ -21,10 +21,8 @@ const GLfloat g_AngleSpeed = 10.0f;
 Basis* g_Basis;
 TestObject* test;
 
-Particules* particules;
-
 Explosion* explosion;
-
+Explosion* explosionBis;
 Environment* environnement;
 
 
@@ -36,8 +34,9 @@ GraphicsEngine::GraphicsEngine()
 
     g_Basis = new Basis( 10.0 );
     test = new TestObject();
-    particules = new Particules();
     explosion = new Explosion();
+    explosionBis = new Explosion();
+    explosionBis->setPosition(0,0.5f,0);
     environnement = new Environment();
 }
 
@@ -51,13 +50,12 @@ GraphicsEngine::~GraphicsEngine()
 bool
 GraphicsEngine::initializeObjects()
 {
-    // Fond gris
-    glClearColor( 0.2f, 0.2f, 0.2f, 1.0f );
+    // Fond noir
+    glClearColor( 0.0f, 0.0f, 0.0f, 1.0f );
     glEnable( GL_DEPTH_TEST );
 
     // Chargement des shaders
     createShader( "Shaders/color" );
-
     cout << "Shader color: ";
     if (useShader( "color" ))
     {
@@ -67,10 +65,7 @@ GraphicsEngine::initializeObjects()
     {
         cout << "NOT Loaded!" << endl;
     }
-
-
     createShader( "Shaders/test" );
-
     cout << "Shader test: ";
     if (useShader( "test" ))
     {
@@ -80,10 +75,7 @@ GraphicsEngine::initializeObjects()
     {
         cout << "NOT Loaded!" << endl;
     }
-
-
     createShader( "Shaders/particules" );
-
     cout << "Shader particules: ";
     if (useShader( "particules" ))
     {
@@ -114,27 +106,21 @@ GraphicsEngine::initializeObjects()
 void
 GraphicsEngine::render()
 {
-    // Initialisation de la caméra
-    lookAt( 0, 5, 30, 0, 0, 0 );
 
-     //environnement->update(1.0);
-
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glLoadIdentity();//load identity matrix
+    lookAt( 0, 5, 60, 0, 0, 0 );
     // Rendu des objets
     pushMatrix();
         rotate( angle1, 0, 1, 0 );
         rotate( angle2, 1, 0, 0 );
-
-        g_Basis->draw();
-        test->draw();
-
-        particules->update();
-        particules->draw();
-
         explosion->update();
         explosion->draw();
+        pushMatrix();
+            explosionBis->update();
+            explosionBis->draw();
+        popMatrix();
     popMatrix();
-
-
 }
 
 
@@ -143,28 +129,28 @@ GraphicsEngine::keyPressEvent( QKeyEvent* event )
 {
     switch( event->key())
     {
-        case Qt::Key_Escape:
-            close();
-            break;
+    case Qt::Key_Escape:
+        close();
+        break;
 
-        case Qt::Key_Left:
-            angle1 -= g_AngleSpeed;
-            break;
+    case Qt::Key_Left:
+        angle1 -= g_AngleSpeed;
+        break;
 
-        case Qt::Key_Right:
-            angle1 += g_AngleSpeed;
-            break;
+    case Qt::Key_Right:
+        angle1 += g_AngleSpeed;
+        break;
 
-        case Qt::Key_Up:
-            angle2 -= g_AngleSpeed;
-            break;
+    case Qt::Key_Up:
+        angle2 -= g_AngleSpeed;
+        break;
 
-        case Qt::Key_Down:
-            angle2 += g_AngleSpeed;
-            break;
+    case Qt::Key_Down:
+        angle2 += g_AngleSpeed;
+        break;
 
-        case Qt::Key_R:
-            angle1 = angle2 = 0.0f;
-            break;
+    case Qt::Key_R:
+        angle1 = angle2 = 0.0f;
+        break;
     }
 }
