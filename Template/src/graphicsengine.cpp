@@ -106,9 +106,7 @@ GraphicsEngine::initializeObjects()
 void
 GraphicsEngine::render()
 {
-
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glLoadIdentity();//load identity matrix
     lookAt( 0, 5, 60, 0, 0, 0 );
     // Rendu des objets
     pushMatrix();
