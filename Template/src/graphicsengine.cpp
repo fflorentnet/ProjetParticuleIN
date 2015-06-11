@@ -40,6 +40,8 @@ Particules* particules;
 Explosion* explosion;
 
 Fusee* fusee;
+Fusee* fusee2;
+Fusee* fusee3;
 
 Environment* environnement;
 
@@ -56,6 +58,8 @@ GraphicsEngine::GraphicsEngine()
     explosion = new Explosion();
     environnement = new Environment();
     fusee = new Fusee();
+    fusee2 = new Fusee();
+    fusee3 = new Fusee();
 }
 
 
@@ -172,6 +176,12 @@ GraphicsEngine::render()
 
         fusee->update();
         fusee->draw();
+
+        fusee2->update();
+        fusee2->draw();
+
+        fusee3->update();
+        fusee3->draw();
 
     popMatrix();
 
