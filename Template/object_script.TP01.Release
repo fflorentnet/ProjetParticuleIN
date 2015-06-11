@@ -18,4 +18,5 @@ INPUT(
 ./obj\testobject.o
 ./obj\particules.o
 ./obj\explosion.o
+./obj\fusee.o
 );

@@ -40,7 +40,8 @@ HEADERS += \
     ../glew-mingw/include/GL/wglew.h \
     ../Common/Shapes/testobject.h \
     ../Common/Shapes/particules.h \
-    ../Common/Shapes/explosion.h
+    ../Common/Shapes/explosion.h \
+    ../Common/Shapes/fusee.h
 
 SOURCES += \
     ../Common/GlFramework.cpp \
@@ -61,7 +62,8 @@ SOURCES += \
     ../Common/RandomNumberGenerator.cpp \
     ../Common/Shapes/testobject.cpp \
     ../Common/Shapes/particules.cpp \
-    ../Common/Shapes/explosion.cpp
+    ../Common/Shapes/explosion.cpp \
+    ../Common/Shapes/fusee.cpp
 
 DISTFILES += \
     ../glew-mingw/lib/glew32.dll \
@@ -70,4 +72,6 @@ DISTFILES += \
     release/Shaders/particules.vs \
     release/Shaders/particules.fs \
     release/Shaders/explosion.vs \
-    release/Shaders/explosion.fs
+    release/Shaders/explosion.fs \
+    release/Shaders/simpleMovement.vs \
+    release/Shaders/simpleMovement.fs
