@@ -27,7 +27,10 @@ Fusee::update()
     if(life >= explodeTime && !isExploded)
     {
         isExploded = true;
-        explosion->setPosition(position[0],position[1],position[2]); // BADABOUM, on explose tout ! Il faut currentPosition ici !
+        explosion->setPosition(
+                    position[0] + (speed[0] * life),
+                    position[1] + (speed[1] * life) + weight[0] * -9.8f * life * life,
+                    0.0f);
     }
 
 
@@ -44,7 +47,7 @@ void Fusee::init(){
     explosion = new Explosion();
     isExploded = false;
 
-    explodeTime = 10.0f;
+    explodeTime = RandomFloat(0.5f,1.5f);
 
 
     float velocity = 4.0f;
@@ -53,7 +56,7 @@ void Fusee::init(){
     float randVelocity = 0.0f;
     float particleAngle = 0.0f;
 
-    randVelocity = RandomFloat(0.5f,velocity*velocity);
+    randVelocity = RandomFloat(1.5f,velocity*velocity);
     particleAngle = RandomFloat(45,130)*theta;
     speed[0] = cos(particleAngle)*randVelocity;
     speed[1] = sin(particleAngle)*randVelocity;
@@ -110,16 +113,6 @@ Fusee::drawShape()
         GLint var5 = glGetAttribLocation( m_Framework->getCurrentShaderId(), "poids" );
         glEnableVertexAttribArray( var5 );
         glVertexAttribPointer( var5, 1, GL_FLOAT, GL_FALSE, 0, weight);
-
-
-        // JE TROUVE PAS COMMENT FAIRE POUR RECUPERER CURRENT POSITION ICI :
-
-
-        /*GLint var_id = glGetUniformfv( m_Framework->getCurrentShaderId(), "currentPosition" );
-
-        shader.setProgramOutput(0,"outputF");
-            shader.setVertexAttribName(VSShaderLib::VERTEX_COORD_ATTRIB, "position");
-        cout << returnedPosition[0] << " " << returnedPosition[1];*/
 
         glPointSize(10);
 

@@ -21,9 +21,6 @@ protected:
     GLfloat position[3] = {
         0.0f, 0.0f, 0.0f
     };
-    GLfloat returnedPosition[3] = {
-        0.0f, 0.0f, 0.0f
-    };
     GLfloat speed[3] = {
         0.0f, 0.0f, 0.0f
     };
