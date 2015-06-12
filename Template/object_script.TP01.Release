@@ -19,4 +19,6 @@ INPUT(
 ./obj\particules.o
 ./obj\explosion.o
 ./obj\fusee.o
+./obj\fontaine.o
+./obj\fontaineboucle.o
 );

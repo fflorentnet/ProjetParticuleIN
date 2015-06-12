@@ -6,6 +6,8 @@
 #include "Shapes/particules.h"
 #include "Shapes/explosion.h"
 #include "Shapes/fusee.h"
+#include "Shapes/fontaine.h"
+#include "Shapes/fontaineboucle.h"
 #include "environment.h"
 
 #include <iostream>
@@ -43,6 +45,8 @@ Fusee* fusee;
 Fusee* fusee2;
 Fusee* fusee3;
 
+FontaineBoucle* fontaine;
+
 Environment* environnement;
 
 
@@ -60,6 +64,8 @@ GraphicsEngine::GraphicsEngine()
     fusee = new Fusee();
     fusee2 = new Fusee();
     fusee3 = new Fusee();
+
+    fontaine = new FontaineBoucle();
 }
 
 
@@ -145,6 +151,18 @@ GraphicsEngine::initializeObjects()
         cout << "NOT Loaded!" << endl;
     }
 
+    createShader( "Shaders/fountain" );
+
+    cout << "Shader fountain: ";
+    if (useShader( "fountain" ))
+    {
+        cout << "Loaded!" << endl;
+    }
+    else
+    {
+        cout << "NOT Loaded!" << endl;
+    }
+
 
     return true;
 }
@@ -174,14 +192,18 @@ GraphicsEngine::render()
         /*explosion->update();
         explosion->draw();*/
 
-        fusee->update();
+       /* fusee->update();
         fusee->draw();
 
         fusee2->update();
         fusee2->draw();
 
         fusee3->update();
-        fusee3->draw();
+        fusee3->draw();*/
+
+
+        fontaine->update();
+        fontaine->draw();
 
     popMatrix();
 

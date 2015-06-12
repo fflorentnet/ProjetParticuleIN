@@ -41,7 +41,9 @@ HEADERS += \
     ../Common/Shapes/testobject.h \
     ../Common/Shapes/particules.h \
     ../Common/Shapes/explosion.h \
-    ../Common/Shapes/fusee.h
+    ../Common/Shapes/fusee.h \
+    ../Common/Shapes/fontaine.h \
+    ../Common/Shapes/fontaineboucle.h
 
 SOURCES += \
     ../Common/GlFramework.cpp \
@@ -63,7 +65,9 @@ SOURCES += \
     ../Common/Shapes/testobject.cpp \
     ../Common/Shapes/particules.cpp \
     ../Common/Shapes/explosion.cpp \
-    ../Common/Shapes/fusee.cpp
+    ../Common/Shapes/fusee.cpp \
+    ../Common/Shapes/fontaine.cpp \
+    ../Common/Shapes/fontaineboucle.cpp
 
 DISTFILES += \
     ../glew-mingw/lib/glew32.dll \
@@ -74,4 +78,6 @@ DISTFILES += \
     release/Shaders/explosion.vs \
     release/Shaders/explosion.fs \
     release/Shaders/simpleMovement.vs \
-    release/Shaders/simpleMovement.fs
+    release/Shaders/simpleMovement.fs \
+    release/Shaders/fountain.vs \
+    release/Shaders/fountain.fs
