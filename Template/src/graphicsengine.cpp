@@ -45,7 +45,11 @@ Fusee* fusee;
 Fusee* fusee2;
 Fusee* fusee3;
 
+Fontaine* fontaineSimple;
+
 FontaineBoucle* fontaine;
+FontaineBoucle* fontaine2;
+FontaineBoucle* fontaine3;
 
 Environment* environnement;
 
@@ -61,11 +65,19 @@ GraphicsEngine::GraphicsEngine()
     particules = new Particules();
     explosion = new Explosion();
     environnement = new Environment();
+
     fusee = new Fusee();
     fusee2 = new Fusee();
     fusee3 = new Fusee();
 
+    fontaineSimple = new Fontaine();
+    fontaineSimple->setPosition(7.0f,10.0f, 0.0f);
+
     fontaine = new FontaineBoucle();
+    fontaine2 = new FontaineBoucle();
+    fontaine2->setPosition(5.0f,0.0f, 0.0f);
+    fontaine3 = new FontaineBoucle();
+    fontaine3->setPosition(10.0f,0.0f, 0.0f);
 }
 
 
@@ -192,18 +204,27 @@ GraphicsEngine::render()
         /*explosion->update();
         explosion->draw();*/
 
-       /* fusee->update();
+        fontaineSimple->update();
+        fontaineSimple->draw();
+
+        fusee->update();
         fusee->draw();
 
         fusee2->update();
         fusee2->draw();
 
         fusee3->update();
-        fusee3->draw();*/
+        fusee3->draw();
 
 
         fontaine->update();
         fontaine->draw();
+
+        fontaine2->update();
+        fontaine2->draw();
+
+        fontaine3->update();
+        fontaine3->draw();
 
     popMatrix();
 
