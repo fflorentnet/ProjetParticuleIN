@@ -62,8 +62,9 @@ GraphicsEngine::GraphicsEngine()
 
     g_Basis = new Basis( 10.0 );
     test = new TestObject();
-    particules = new Particules();
-    explosion = new Explosion();
+    /*particules = new Particules();
+    explosion = new Explosion();*/
+
     environnement = new Environment();
 
     fusee = new Fusee();
@@ -203,7 +204,7 @@ GraphicsEngine::render()
 
         /*explosion->update();
         explosion->draw();*/
-
+/*
         fontaineSimple->update();
         fontaineSimple->draw();
 
@@ -216,15 +217,29 @@ GraphicsEngine::render()
         fusee3->update();
         fusee3->draw();
 
-
-        fontaine->update();
+*/
+       /* fontaine->update();
         fontaine->draw();
 
         fontaine2->update();
         fontaine2->draw();
 
         fontaine3->update();
-        fontaine3->draw();
+        fontaine3->draw();*/
+
+        for(int i=0; i<50; i++){
+
+            Phenomene* p = environnement->phenomenesContainer[i];
+            if(p == NULL)
+            {
+                //cout << "Break : " << i << endl;
+                break;
+            }
+
+            //cout << i << " : " << p << endl;
+            p->update();
+            p->draw();
+        }
 
     popMatrix();
 
@@ -290,5 +305,20 @@ GraphicsEngine::keyPressEvent( QKeyEvent* event )
         case Qt::Key_R:
             angle1 = angle2 = 0.0f;
             break;
+
+        case Qt::Key_A:
+            environnement->createPhenomene(1,0);
+            break;
+        case Qt::Key_B:
+            environnement->createPhenomene(2,0);
+            break;
+        case Qt::Key_C:
+            environnement->createPhenomene(3,0);
+            break;
+        case Qt::Key_D:
+            environnement->createPhenomene(4,0);
+            break;
+
+
     }
 }

@@ -11,25 +11,20 @@ using namespace std;
 Explosion::Explosion()
 {
     init();
+    deathTime = 1.0f;
 }
-void Explosion::setPosition(float x, float y, float z)
-{
-    position[0] = x;
-    position[1] = y;
-    position[2] = z;
-}
-
 
 void
 Explosion::update()
 {
     life+= 0.01f; // contient la vie de l'ensemble / du phenomene
-    if(life > 1.0f)
+   /* if(life > 1.0f)
     {
 
        setPosition(this->RandomFloat(-10,10),this->RandomFloat(-10,10), 0);
        init();
-    }
+
+    }*/
 }
 void Explosion::init(){
     float velocity = 4.0f;
@@ -52,9 +47,6 @@ void Explosion::init(){
     colorParticles[0] = RandomFloat(50,200);
     colorParticles[1] = RandomFloat(50,200);
     colorParticles[2] = RandomFloat(50,200);
- /*   colorParticles[0] = 255.0f;
-    colorParticles[1] = 0.0f;
-    colorParticles[2] = 0.0f;*/
 
 }
 void
@@ -68,14 +60,6 @@ Explosion::draw()
 
         drawShape();
     }
-}
-
-float
-Explosion::RandomFloat(float a, float b) {
-    float random = ((float) rand()) / (float) RAND_MAX;
-    float diff = b - a;
-    float r = random * diff;
-    return a + r;
 }
 
 void

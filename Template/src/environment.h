@@ -6,11 +6,10 @@
 class Environment
 {
 public:
-    Phenomene* phenomenesContainer;
+    Phenomene* phenomenesContainer[MAX_PHENOMENE];
     Environment();
     ~Environment();
     void createPhenomene(int typePhenomene, float startTime);
-    void update(float delta);
 };
 
 #endif // ENVIRONMENT_H

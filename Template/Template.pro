@@ -21,15 +21,11 @@ HEADERS += \
     ../Common/LF_String.h \
     ../Common/Object3D.h \
     ../Common/Shapes/Basis.h \
-    src/particule.h \
-    src/phenomene.h \
     src/graphicsengine.h \
     src/camera.h \
     src/environment.h \
     src/quaternion.h \
     color.h \
-    src/fountainphenomene.h \
-    src/fountainparticule.h \
     ../Common/AbstractFramework.h \
     ../Common/MemDefns.h \
     ../Common/RandomNumberGenerator.h \
@@ -43,7 +39,8 @@ HEADERS += \
     ../Common/Shapes/explosion.h \
     ../Common/Shapes/fusee.h \
     ../Common/Shapes/fontaine.h \
-    ../Common/Shapes/fontaineboucle.h
+    ../Common/Shapes/fontaineboucle.h \
+    ../Common/phenomene.h
 
 SOURCES += \
     ../Common/GlFramework.cpp \
@@ -51,23 +48,20 @@ SOURCES += \
     ../Common/LF_String.cpp \
     ../Common/Object3D.cpp \
     ../Common/Shapes/Basis.cpp \
-    src/particule.cpp \
-    src/phenomene.cpp \
     src/Simulator.cpp \
     src/graphicsengine.cpp \
     src/camera.cpp \
     src/environment.cpp \
     src/quaternion.cpp \
     color.cpp \
-    src/fountainphenomene.cpp \
-    src/fountainparticule.cpp \
     ../Common/RandomNumberGenerator.cpp \
     ../Common/Shapes/testobject.cpp \
     ../Common/Shapes/particules.cpp \
     ../Common/Shapes/explosion.cpp \
     ../Common/Shapes/fusee.cpp \
     ../Common/Shapes/fontaine.cpp \
-    ../Common/Shapes/fontaineboucle.cpp
+    ../Common/Shapes/fontaineboucle.cpp \
+    ../Common/phenomene.cpp
 
 DISTFILES += \
     ../glew-mingw/lib/glew32.dll \

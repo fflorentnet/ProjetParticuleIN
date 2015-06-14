@@ -1,5 +1,8 @@
 ﻿#include "Object3D.h"
 
+#include <iostream>
+using namespace std;
+
 
 AbstractFramework* Object3D::m_Framework = NULL;
 

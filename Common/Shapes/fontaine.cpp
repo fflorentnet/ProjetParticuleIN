@@ -11,13 +11,6 @@ Fontaine::Fontaine()
 {
     init();
 }
-void Fontaine::setPosition(float x, float y, float z)
-{
-    position[0] = x;
-    position[1] = y;
-    position[2] = z;
-}
-
 
 void
 Fontaine::update()
@@ -87,14 +80,6 @@ Fontaine::draw()
     }
 }
 
-float
-Fontaine::RandomFloat(float a, float b) {
-    float random = ((float) rand()) / (float) RAND_MAX;
-    float diff = b - a;
-    float r = random * diff;
-    return a + r;
-}
-
 void
 Fontaine::drawShape()
 {
@@ -111,10 +96,6 @@ Fontaine::drawShape()
 
             GLint var1 = glGetUniformLocation( m_Framework->getCurrentShaderId(), "life" );
             glUniform1f(var1, tLife);
-
-            /*GLint var1 = glGetAttribLocation( m_Framework->getCurrentShaderId(), "life" );
-            glEnableVertexAttribArray( var1 );
-            glVertexAttribPointer( var1, 1, GL_FLOAT, GL_FALSE, 0, lives);*/
 
             GLint var6 = glGetUniformLocation( m_Framework->getCurrentShaderId(), "rlife" );
             glUniform1f(var6, i);

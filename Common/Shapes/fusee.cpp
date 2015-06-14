@@ -10,12 +10,6 @@ Fusee::Fusee()
 {
     init();
 }
-void Fusee::setPosition(float x, float y, float z)
-{
-    position[0] = x;
-    position[1] = y;
-    position[2] = z;
-}
 
 
 void
@@ -82,13 +76,6 @@ Fusee::draw()
     }
 }
 
-float
-Fusee::RandomFloat(float a, float b) {
-    float random = ((float) rand()) / (float) RAND_MAX;
-    float diff = b - a;
-    float r = random * diff;
-    return a + r;
-}
 
 void
 Fusee::drawShape()
