@@ -19,8 +19,6 @@ class GraphicsEngine : public GlWindow
         void mouseMoveEvent(QMouseEvent *event);
         void wheelEvent(QWheelEvent *event);
 
-        void rotateBy(int x, int y, int z);
-
         /*!
         *\brief Rendu de la scène.
         */

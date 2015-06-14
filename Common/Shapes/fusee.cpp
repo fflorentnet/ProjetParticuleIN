@@ -9,7 +9,7 @@ using namespace std;
 Fusee::Fusee()
 {
     init();
-    deathTime = 1.0f;
+    deathTime = 3.0f;
 }
 
 
@@ -51,7 +51,7 @@ void Fusee::init(){
     float randVelocity = 0.0f;
     float particleAngle = 0.0f;
 
-    randVelocity = RandomFloat(1.5f,velocity*velocity);
+    randVelocity = RandomFloat(3.5f,velocity*velocity);
     particleAngle = RandomFloat(45,130)*theta;
     speed[0] = cos(particleAngle)*randVelocity;
     speed[1] = sin(particleAngle)*randVelocity;

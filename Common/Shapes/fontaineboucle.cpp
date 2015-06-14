@@ -80,9 +80,6 @@ FontaineBoucle::draw()
 void
 FontaineBoucle::drawShape()
 {
-    for (int i = 0; i < life/0.01f;++i)
-    {
-        float tLife = i * 0.001f;
         GLint var2 = glGetUniformLocation( m_Framework->getCurrentShaderId(), "position" );
         glUniform3f(var2, position[0], position[1], position[2]);
 
@@ -101,9 +98,6 @@ FontaineBoucle::drawShape()
         glEnableVertexAttribArray( var1 );
         glVertexAttribPointer( var1, 1, GL_FLOAT, GL_FALSE, 0, m_lives);
 
-        GLint var6 = glGetUniformLocation( m_Framework->getCurrentShaderId(), "tLife" );
-        glUniform1f(var6, tLife);
-
 
         glPointSize(2);
 
@@ -114,6 +108,5 @@ FontaineBoucle::drawShape()
         glDisableVertexAttribArray( var3 );
         glDisableVertexAttribArray( var4 );
         glDisableVertexAttribArray( var5 );
-    }
 }
 

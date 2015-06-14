@@ -70,7 +70,6 @@ Explosion::drawShape()
         {
             tLife = life - i * 0.01;
 
-
             GLint var1 = glGetUniformLocation( m_Framework->getCurrentShaderId(), "life" );
             glUniform1f(var1, tLife);
 

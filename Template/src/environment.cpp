@@ -15,9 +15,9 @@ Environment::Environment()
         phenomenesContainer[i] = NULL;
 }
 
-void Environment::createPhenomene(int typePhenomene, float startTime){
+void Environment::createPhenomene(int typePhenomene){
 
-    cout << "Nouveau phenomene ajouté : ";
+    cout << "Nouveau phenomene ajoute : ";
 
     Phenomene* newPhenomene;
     switch(typePhenomene)
@@ -29,7 +29,7 @@ void Environment::createPhenomene(int typePhenomene, float startTime){
             break;
         case 2:
             newPhenomene = new Fontaine();
-            newPhenomene->setPosition(-1.0,0.0,0);
+            newPhenomene->setRandPositionOnTheFloor();
             cout << "Fontaine ";
             break;
         case 3:
@@ -41,6 +41,11 @@ void Environment::createPhenomene(int typePhenomene, float startTime){
             newPhenomene = new Explosion();
             newPhenomene->setPosition(5.0,5.0,0);
             cout << "Explosion ";
+            break;
+        case 5:
+            newPhenomene = new Particules();
+            newPhenomene->setPosition(0.0,0.0,0);
+            cout << "Particules ";
             break;
     }
 

@@ -30,15 +30,6 @@ public:
     void rotateZ(float angle);
     Vec3 getPosition() { return m_Position; }
     Vec3 getLook() { return m_Look; }
-    /*
-    GLMatrix& getViewMatrix() const;
-    void setAspectRatio(float ar);
-    void setPlanes(float np, float fp);
-    void setFOV(float angle);
-    GLMatrix& getProjectionMatrix() const;
-*/
-    //void buildViewMatrix();
-    //void buildProjectionMatrix();
 };
 
 #endif // CAMERA_H

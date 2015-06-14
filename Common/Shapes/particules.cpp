@@ -3,7 +3,14 @@
 
 Particules::Particules()
 {
+    init();
+}
+
+void
+Particules::init()
+{
     life = 0.0f;
+    deathTime = 5.0f;
     float currentVal = 0.0f;
     int counter = 0;
     for( GLuint i = 0; i < NB_PARTICULES*POINTS; i += POINTS )

@@ -14,6 +14,7 @@ public:
     void update();
 
 protected:
+    void init();
     void drawShape();
     GLfloat m_tabVertices[NB_PARTICULES*POINTS];
     GLfloat m_tabColors[NB_PARTICULES*POINTS];

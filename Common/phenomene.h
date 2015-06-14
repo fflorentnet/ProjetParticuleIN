@@ -14,8 +14,6 @@ public:
 
  protected:
     float RandomFloat(float, float);
-    /*void init();
-    void drawShape();*/
     virtual void init() = 0;
     virtual void drawShape() = 0;
     float life = 0.0f;

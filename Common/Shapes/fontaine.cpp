@@ -18,10 +18,11 @@ Fontaine::update()
     life+= 0.01f;
 }
 
-
-
 void
 Fontaine::init(){
+
+    deathTime = 3.0f;
+
     float velocity = 8.0f;
     float theta = (PI * 2)/360;
     life = 0.0f;

@@ -2,12 +2,6 @@
 
 
 #include "Shapes/Basis.h"
-#include "Shapes/TestObject.h"
-#include "Shapes/particules.h"
-#include "Shapes/explosion.h"
-#include "Shapes/fusee.h"
-#include "Shapes/fontaine.h"
-#include "Shapes/fontaineboucle.h"
 #include "environment.h"
 #include "camera.h"
 #include <iostream>
@@ -18,16 +12,8 @@ using namespace std;
 GLfloat angle1 = 0.0f;
 GLfloat angle2 = 0.0f;
 
-
-GLfloat pos_x = 0.0f;
-GLfloat pos_y = 0.0f;
-
 GLfloat zoom = 30.0f;
 
-
-GLfloat x_rot = 0.0f;
-GLfloat y_rot = 0.0f;
-GLfloat z_rot = 0.0f;
 float angle = 0;
 QPoint last_pos;
 
@@ -156,27 +142,20 @@ GraphicsEngine::render()
     // Initialisation de la caméra
     lookAt( g_Camera->getPosition().x , g_Camera->getPosition().y, g_Camera->getPosition().z
             , g_Camera->getLook().x, g_Camera->getLook().y, g_Camera->getLook().z);
-     //environnement->update(1.0);
 
     // Rendu des objets
     pushMatrix();
         rotate( angle1, 0, 1, 0 );
         rotate( angle2, 1, 0, 0 );
-        /*rotate( x_rot, 1, 0, 0 );
-        rotate( y_rot, 0, 1, 0 );
-        rotate( z_rot, 0, 0, 1 );*/
 
         g_Basis->draw();
-        for(int i=0; i<50; i++){
+        for(int i=0; i<100; i++){
 
             Phenomene* p = environnement->phenomenesContainer[i];
             if(p == NULL)
             {
-                //cout << "Break : " << i << endl;
                 break;
             }
-
-            //cout << i << " : " << p << endl;
             p->update();
             p->draw();
         }
@@ -198,30 +177,13 @@ void GraphicsEngine::mouseMoveEvent(QMouseEvent *event)
 
     if (event->buttons() & Qt::RightButton)
     {
-        /*rotateBy(dy/5, 0, 0);
-        rotateBy(0, dx/5, 0);*/
-       // g_Camera->translateLook(dx,dy,0);
-
-        // calculate the camera's position
        g_Camera->translateLook(dx/2,
                             dy/2,
                             0
                             );
-
-        /*angle1 += dx;
-        angle2 += dy;*/
     }
     last_pos = event->pos();
 }
-
-
-void GraphicsEngine::rotateBy(int x, int y, int z)
-{
-    x_rot -= x;
-    y_rot -= y;
-    z_rot += z;
-}
-
 
 void
 GraphicsEngine::keyPressEvent( QKeyEvent* event )
@@ -234,26 +196,18 @@ GraphicsEngine::keyPressEvent( QKeyEvent* event )
 
         case Qt::Key_Left:
             angle1 -= g_AngleSpeed;
-            //pos_x -= g_AngleSpeed;
-            //g_Camera->translate(-g_AngleSpeed,0,0);
             break;
 
         case Qt::Key_Right:
             angle1 += g_AngleSpeed;
-            //pos_x += g_AngleSpeed;
-            //g_Camera->translate(g_AngleSpeed,0,0);
             break;
 
         case Qt::Key_Up:
             angle2 -= g_AngleSpeed;
-            //pos_y -= g_AngleSpeed;
-            //g_Camera->translate(0,-g_AngleSpeed,0);
         break;
 
         case Qt::Key_Down:
             angle2 += g_AngleSpeed;
-            //pos_y += g_AngleSpeed;
-            //g_Camera->translate(0,g_AngleSpeed,0);
             break;
     case Qt::Key_8:
         g_Camera->translate(0,1,0);
@@ -289,18 +243,20 @@ GraphicsEngine::keyPressEvent( QKeyEvent* event )
     {
 
         case Qt::Key_A:
-            environnement->createPhenomene(1,0);
+            environnement->createPhenomene(1);
             break;
         case Qt::Key_B:
-            environnement->createPhenomene(2,0);
+            environnement->createPhenomene(2);
             break;
         case Qt::Key_C:
-            environnement->createPhenomene(3,0);
+            environnement->createPhenomene(3);
             break;
         case Qt::Key_D:
-            environnement->createPhenomene(4,0);
+            environnement->createPhenomene(4);
             break;
-
+        case Qt::Key_E:
+            environnement->createPhenomene(5);
+            break;
 
     }
 }
