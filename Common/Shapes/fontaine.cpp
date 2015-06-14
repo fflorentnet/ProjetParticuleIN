@@ -16,21 +16,6 @@ void
 Fontaine::update()
 {
     life+= 0.01f;
-    if (life > 1)
-        life = 0;
-    /*for (GLuint i = 0; i <NB_PARTICULES_FONTAINE ; i++)
-    {
-        lives[i] += 0.01f;
-
-        if(i < (NB_PARTICULES_FONTAINE * 0.5f))
-        {
-            lives[i] += 0.02f;
-        }
-        if(lives[i] > 1.0f)
-        {
-           lives[i] = 0.0f;
-        }
-    }*/
 }
 
 
@@ -52,7 +37,7 @@ Fontaine::init(){
         particleAngle = RandomFloat(45,130)*theta;//i*theta;
         m_tabSpeed[i+0] = cos(particleAngle)*RandomFloat(2,velocity);
         m_tabSpeed[i+1] = sin(particleAngle)*randVelocity+5;
-        m_tabSpeed[i+2] = 0;
+        m_tabSpeed[i+2] = cos(RandomFloat(-PI,PI))*sin(RandomFloat(-PI,PI))*RandomFloat(2,velocity);
     }
 
 

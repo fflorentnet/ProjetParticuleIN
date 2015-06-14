@@ -13,8 +13,6 @@ Environment::Environment()
 {
     for(int i=0; i<MAX_PHENOMENE; i++)
         phenomenesContainer[i] = NULL;
-
-
 }
 
 void Environment::createPhenomene(int typePhenomene, float startTime){
@@ -50,7 +48,7 @@ void Environment::createPhenomene(int typePhenomene, float startTime){
     for(int i=0; i<MAX_PHENOMENE; i++){
 
         tmpPhenomene = phenomenesContainer[i];
-        if(tmpPhenomene == NULL)// || tmpPhenomene->isEnded()
+        if(tmpPhenomene == NULL || tmpPhenomene->isEnded())
         {
             phenomenesContainer[i] = newPhenomene;
             cout << "en position " << i;

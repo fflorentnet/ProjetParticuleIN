@@ -24,7 +24,7 @@ Phenomene::Phenomene()
     bool
     Phenomene::isEnded()
     {
-        return deathTime >= life;
+        return deathTime <= life;
     }
 
     float

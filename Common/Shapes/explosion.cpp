@@ -18,13 +18,6 @@ void
 Explosion::update()
 {
     life+= 0.01f; // contient la vie de l'ensemble / du phenomene
-   /* if(life > 1.0f)
-    {
-
-       setPosition(this->RandomFloat(-10,10),this->RandomFloat(-10,10), 0);
-       init();
-
-    }*/
 }
 void Explosion::init(){
     float velocity = 4.0f;
@@ -39,7 +32,7 @@ void Explosion::init(){
         particleAngle = i*theta;
         m_tabSpeed[i+0] = cos(particleAngle)*randVelocity;
         m_tabSpeed[i+1] = sin(particleAngle)*randVelocity;
-        m_tabSpeed[i+2] = 0;
+        m_tabSpeed[i+2] = sin(RandomFloat(-PI, PI))*randVelocity;
     }
     for (GLuint i = 0; i <NB_PARTICULES ; i++)
         m_Weight[i] = RandomFloat(0.001f,1.0f);

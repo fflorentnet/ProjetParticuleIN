@@ -35,56 +35,23 @@ const GLfloat g_AngleSpeed = 10.0f;
 
 
 Basis* g_Basis;
-TestObject* test;
-
-Particules* particules;
-
-Explosion* explosion;
-
-Fusee* fusee;
-Fusee* fusee2;
-Fusee* fusee3;
-
-Fontaine* fontaineSimple;
-
-FontaineBoucle* fontaine;
-FontaineBoucle* fontaine2;
-FontaineBoucle* fontaine3;
-
 Environment* environnement;
-
-
-
 
 GraphicsEngine::GraphicsEngine()
 {
     setWindowTitle(trUtf8("IN55-GraphicsEngine"));
 
     g_Basis = new Basis( 10.0 );
-    test = new TestObject();
-    /*particules = new Particules();
-    explosion = new Explosion();*/
 
     environnement = new Environment();
 
-    fusee = new Fusee();
-    fusee2 = new Fusee();
-    fusee3 = new Fusee();
-
-    fontaineSimple = new Fontaine();
-    fontaineSimple->setPosition(7.0f,10.0f, 0.0f);
-
-    fontaine = new FontaineBoucle();
-    fontaine2 = new FontaineBoucle();
-    fontaine2->setPosition(5.0f,0.0f, 0.0f);
-    fontaine3 = new FontaineBoucle();
-    fontaine3->setPosition(10.0f,0.0f, 0.0f);
 }
 
 
 GraphicsEngine::~GraphicsEngine()
 {
     delete g_Basis;
+    delete environnement;
 }
 
 void GraphicsEngine::wheelEvent(QWheelEvent *event)
@@ -197,36 +164,6 @@ GraphicsEngine::render()
         rotate( z_rot, 0, 0, 1 );*/
 
         g_Basis->draw();
-       /* test->draw();
-
-        particules->update();
-        particules->draw();*/
-
-        /*explosion->update();
-        explosion->draw();*/
-/*
-        fontaineSimple->update();
-        fontaineSimple->draw();
-
-        fusee->update();
-        fusee->draw();
-
-        fusee2->update();
-        fusee2->draw();
-
-        fusee3->update();
-        fusee3->draw();
-
-*/
-       /* fontaine->update();
-        fontaine->draw();
-
-        fontaine2->update();
-        fontaine2->draw();
-
-        fontaine3->update();
-        fontaine3->draw();*/
-
         for(int i=0; i<50; i++){
 
             Phenomene* p = environnement->phenomenesContainer[i];
@@ -305,6 +242,9 @@ GraphicsEngine::keyPressEvent( QKeyEvent* event )
         case Qt::Key_R:
             angle1 = angle2 = 0.0f;
             break;
+}
+    switch( event->key())
+    {
 
         case Qt::Key_A:
             environnement->createPhenomene(1,0);

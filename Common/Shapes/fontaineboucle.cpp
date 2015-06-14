@@ -9,6 +9,7 @@ using namespace std;
 FontaineBoucle::FontaineBoucle()
 {
     init();
+    deathTime = 5.0f;
 }
 
 void
@@ -45,7 +46,7 @@ FontaineBoucle::init(){
         particleAngle = RandomFloat(65,125)*theta;
         m_tabSpeed[i+0] = cos(particleAngle)*randVelocity_x;
         m_tabSpeed[i+1] = sin(particleAngle)*randVelocity_y;
-        m_tabSpeed[i+2] = 0;
+        m_tabSpeed[i+2] = cos(RandomFloat(-PI,PI))*sin(RandomFloat(-PI,PI)) * RandomFloat(1.0f,velocity);
     }
 
 
@@ -79,32 +80,40 @@ FontaineBoucle::draw()
 void
 FontaineBoucle::drawShape()
 {
-    GLint var2 = glGetUniformLocation( m_Framework->getCurrentShaderId(), "position" );
-    glUniform3f(var2, position[0], position[1], position[2]);
+    for (int i = 0; i < life/0.01f;++i)
+    {
+        float tLife = i * 0.001f;
+        GLint var2 = glGetUniformLocation( m_Framework->getCurrentShaderId(), "position" );
+        glUniform3f(var2, position[0], position[1], position[2]);
 
-    GLint var3 = glGetUniformLocation( m_Framework->getCurrentShaderId(), "colorParticles" );
-    glUniform3f(var3, colorParticles[0]/255, colorParticles[1]/255, colorParticles[2]/255);
+        GLint var3 = glGetUniformLocation( m_Framework->getCurrentShaderId(), "colorParticles" );
+        glUniform3f(var3, colorParticles[0]/255, colorParticles[1]/255, colorParticles[2]/255);
 
-    GLint var4 = glGetAttribLocation( m_Framework->getCurrentShaderId(), "velocity" );
-    glEnableVertexAttribArray( var4 );
-    glVertexAttribPointer( var4, 3, GL_FLOAT, GL_FALSE, 0, m_tabSpeed );
+        GLint var4 = glGetAttribLocation( m_Framework->getCurrentShaderId(), "velocity" );
+        glEnableVertexAttribArray( var4 );
+        glVertexAttribPointer( var4, 3, GL_FLOAT, GL_FALSE, 0, m_tabSpeed );
 
-    GLint var5 = glGetAttribLocation( m_Framework->getCurrentShaderId(), "poids" );
-    glEnableVertexAttribArray( var5 );
-    glVertexAttribPointer( var5, 1, GL_FLOAT, GL_FALSE, 0, m_Weight);
+        GLint var5 = glGetAttribLocation( m_Framework->getCurrentShaderId(), "poids" );
+        glEnableVertexAttribArray( var5 );
+        glVertexAttribPointer( var5, 1, GL_FLOAT, GL_FALSE, 0, m_Weight);
 
-    GLint var1 = glGetAttribLocation( m_Framework->getCurrentShaderId(), "lives" );
-    glEnableVertexAttribArray( var1 );
-    glVertexAttribPointer( var1, 1, GL_FLOAT, GL_FALSE, 0, m_lives);
+        GLint var1 = glGetAttribLocation( m_Framework->getCurrentShaderId(), "lives" );
+        glEnableVertexAttribArray( var1 );
+        glVertexAttribPointer( var1, 1, GL_FLOAT, GL_FALSE, 0, m_lives);
 
-    glPointSize(2);
+        GLint var6 = glGetUniformLocation( m_Framework->getCurrentShaderId(), "tLife" );
+        glUniform1f(var6, tLife);
 
-    glDrawArrays( GL_POINTS, 0, NB_PARTICULES_FONTAINE_BOUCLE );
 
-    glDisableVertexAttribArray( var1 );
-    glDisableVertexAttribArray( var2 );
-    glDisableVertexAttribArray( var3 );
-    glDisableVertexAttribArray( var4 );
-    glDisableVertexAttribArray( var5 );
+        glPointSize(2);
+
+        glDrawArrays( GL_POINTS, 0, NB_PARTICULES_FONTAINE_BOUCLE );
+
+        glDisableVertexAttribArray( var1 );
+        glDisableVertexAttribArray( var2 );
+        glDisableVertexAttribArray( var3 );
+        glDisableVertexAttribArray( var4 );
+        glDisableVertexAttribArray( var5 );
+    }
 }
 
