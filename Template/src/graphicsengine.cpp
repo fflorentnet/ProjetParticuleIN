@@ -9,7 +9,7 @@
 #include "Shapes/fontaine.h"
 #include "Shapes/fontaineboucle.h"
 #include "environment.h"
-
+#include "camera.h"
 #include <iostream>
 
 using namespace std;
@@ -28,12 +28,12 @@ GLfloat zoom = 30.0f;
 GLfloat x_rot = 0.0f;
 GLfloat y_rot = 0.0f;
 GLfloat z_rot = 0.0f;
-
+float angle = 0;
 QPoint last_pos;
 
 const GLfloat g_AngleSpeed = 10.0f;
 
-
+Camera* g_Camera;
 Basis* g_Basis;
 Environment* environnement;
 
@@ -42,7 +42,8 @@ GraphicsEngine::GraphicsEngine()
     setWindowTitle(trUtf8("IN55-GraphicsEngine"));
 
     g_Basis = new Basis( 10.0 );
-
+    g_Camera = new Camera(0,-5,30
+                         ,0,0,0);
     environnement = new Environment();
 
 }
@@ -52,6 +53,7 @@ GraphicsEngine::~GraphicsEngine()
 {
     delete g_Basis;
     delete environnement;
+    delete g_Camera;
 }
 
 void GraphicsEngine::wheelEvent(QWheelEvent *event)
@@ -152,7 +154,8 @@ void
 GraphicsEngine::render()
 {
     // Initialisation de la caméra
-    lookAt( 0, 5, -zoom, 0, 0, 0 );
+    lookAt( g_Camera->getPosition().x , g_Camera->getPosition().y, g_Camera->getPosition().z
+            , g_Camera->getLook().x, g_Camera->getLook().y, g_Camera->getLook().z);
      //environnement->update(1.0);
 
     // Rendu des objets
@@ -195,8 +198,18 @@ void GraphicsEngine::mouseMoveEvent(QMouseEvent *event)
 
     if (event->buttons() & Qt::RightButton)
     {
-        rotateBy(dy*8, 0, 0);
-        rotateBy(0, dx*8, 0);
+        /*rotateBy(dy/5, 0, 0);
+        rotateBy(0, dx/5, 0);*/
+       // g_Camera->translateLook(dx,dy,0);
+
+        // calculate the camera's position
+       g_Camera->translateLook(dx/2,
+                            dy/2,
+                            0
+                            );
+
+        /*angle1 += dx;
+        angle2 += dy;*/
     }
     last_pos = event->pos();
 }
@@ -204,8 +217,8 @@ void GraphicsEngine::mouseMoveEvent(QMouseEvent *event)
 
 void GraphicsEngine::rotateBy(int x, int y, int z)
 {
-    x_rot += x;
-    y_rot += y;
+    x_rot -= x;
+    y_rot -= y;
     z_rot += z;
 }
 
@@ -221,23 +234,52 @@ GraphicsEngine::keyPressEvent( QKeyEvent* event )
 
         case Qt::Key_Left:
             angle1 -= g_AngleSpeed;
-            pos_x -= g_AngleSpeed;
+            //pos_x -= g_AngleSpeed;
+            //g_Camera->translate(-g_AngleSpeed,0,0);
             break;
 
         case Qt::Key_Right:
             angle1 += g_AngleSpeed;
-            pos_x += g_AngleSpeed;
+            //pos_x += g_AngleSpeed;
+            //g_Camera->translate(g_AngleSpeed,0,0);
             break;
 
         case Qt::Key_Up:
             angle2 -= g_AngleSpeed;
-            pos_y -= g_AngleSpeed;
-            break;
+            //pos_y -= g_AngleSpeed;
+            //g_Camera->translate(0,-g_AngleSpeed,0);
+        break;
 
         case Qt::Key_Down:
             angle2 += g_AngleSpeed;
-            pos_y += g_AngleSpeed;
+            //pos_y += g_AngleSpeed;
+            //g_Camera->translate(0,g_AngleSpeed,0);
             break;
+    case Qt::Key_8:
+        g_Camera->translate(0,1,0);
+        g_Camera->translateLook(0,1,0);
+            break;
+
+    case Qt::Key_2:
+        g_Camera->translate(0,-1,0);
+        g_Camera->translateLook(0,-1,0);
+            break;
+
+    case Qt::Key_4:
+        g_Camera->translate(-1,0,0);
+        g_Camera->translateLook(-1,0,0);
+            break;
+    case Qt::Key_6:
+        g_Camera->translate(1,0,0);
+        g_Camera->translateLook(1,0,0);
+            break;
+    case Qt::Key_Minus:
+        g_Camera->translate(0,0,-1);
+        break;
+    case Qt::Key_Plus:
+        g_Camera->translate(0,0,1);
+        break;
+
 
         case Qt::Key_R:
             angle1 = angle2 = 0.0f;
